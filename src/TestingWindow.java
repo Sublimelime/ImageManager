@@ -18,7 +18,7 @@ public class TestingWindow extends JFrame {
             try {
                 Thread.sleep(4000);
                 repaint();
-            } catch (Exception e) {
+            } catch (InterruptedException e) {
             }
         }
     }

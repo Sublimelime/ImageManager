@@ -12,7 +12,7 @@ public class ImageManager {
     }
 
     /**
-     * Loads all the images in the file, with load type
+     * Loads all the images in the file, with load type set by file syntax
      *
      * @param fileName File with names of images and type of load
      * @return success of load
