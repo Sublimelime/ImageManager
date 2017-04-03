@@ -5,7 +5,7 @@ import java.util.TreeMap;
 
 public class ImageManager {
 
-    TreeMap<String, BufferedImage> images = null;
+    private final TreeMap<String, BufferedImage> images;
 
     public ImageManager() {
         images = new TreeMap<>();
@@ -56,7 +56,7 @@ public class ImageManager {
      * Empties the map.
      */
     public void clear() {
-
+        images.clear();
     }
 
     /**
