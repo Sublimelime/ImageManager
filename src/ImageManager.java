@@ -1,7 +1,9 @@
 
 import java.awt.image.BufferedImage;
-import java.util.Set;
-import java.util.TreeMap;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
 
 public class ImageManager {
 
@@ -18,6 +20,35 @@ public class ImageManager {
      * @return success of load
      */
     public boolean loadImages(String fileName) {
+        ArrayList<String> lines;
+        try {
+            lines = (ArrayList<String>) Files.readAllLines(Paths.get("ImageList.txt"));
+        } catch (IOException exception) {
+            System.out.println("Failed to open file for reading.");
+            exception.printStackTrace();
+            return false;
+        }
+
+        for (String line : lines) {
+            System.out.println("Line read: " + line);
+            String[] vars = line.split("[,]");
+            switch (vars[0]) {
+                case "single": //single,key,fileName.extension
+                    images.put(vars[1], ImageTools.load(vars[2]));
+                    break;
+                case "SNbL": //SNbL,number columns,key,fileName.extension
+
+                    break;
+                case "SSN": //SSN,number columns,keys,fileName.extension
+                    break;
+                case "GNbL":  //GNbL,number columns,number rows,key,fileName.extension
+                    break;
+                case "GSN": //GSN,number columns,number rows, column,keys,fileName.extension
+                    break;
+                default:
+                    System.out.println("Bad line, cannot recognize type " + vars[1]);
+            }
+        }
         return false;
     }
 
