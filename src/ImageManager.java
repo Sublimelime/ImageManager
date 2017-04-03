@@ -59,7 +59,7 @@ public class ImageManager {
      * @return The gotten image.
      */
     public BufferedImage getImage(String key) {
-        return null;
+        return images.get(key);
     }
 
     /**
@@ -80,7 +80,7 @@ public class ImageManager {
      * @return Returns the removed image.
      */
     public BufferedImage removeImage(String key) {
-        return null;
+        return images.remove(key);
     }
 
     /**
