@@ -8,21 +8,21 @@ public class ImageManager {
     TreeMap<String, BufferedImage> images = null;
 
     public ImageManager() {
-        images = new TreeMap<String, BufferedImage>();
+        images = new TreeMap<>();
     }
 
     /* Pre: Receives a name of file
 	 * Post: Loads all this images in the file to map of images using the provided load type
      */
     public boolean loadImages(String fileName) {
-
+        return false;
     }
 
     /* Pre: Receives a key
 	 * Post: returns the image that corrisponds to the given key, null if the key is not found
      */
     public BufferedImage getImage(String key) {
-
+        return null;
     }
 
     /* Pre: Receives a key and a file name
@@ -30,7 +30,7 @@ public class ImageManager {
 	 * Note: null is returned if the file can not be opened
      */
     public BufferedImage loadImage(String key, String file) {
-
+        return null;
     }
 
     /* Pre: Receives a key a
@@ -38,7 +38,7 @@ public class ImageManager {
 	 * null is returned if the map does not cantain the given key
      */
     public BufferedImage removeImage(String key) {
-
+        return null;
     }
 
     /* Pre:

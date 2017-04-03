@@ -29,30 +29,38 @@ public class TestingWindow extends JFrame {
         g.fillRect(0, 0, 400, 400);
         g.setColor(Color.RED);
         g.drawString("" + x, 300, 300);
-        if (x == 0) {
-            g.drawImage(im.getImage("box"), 0, 0, null);
-        } else if (x == 1) {
-            g.drawImage(im.getImage("strip2"), 0, 0, null);
-            g.drawImage(im.getImage("strip0"), 105, 0, null);
-            g.drawImage(im.getImage("strip1"), 210, 0, null);
-        } else if (x == 2) {
-            g.drawImage(im.getImage("stripBlack"), 0, 0, null);
-            g.drawImage(im.getImage("stripRed"), 105, 0, null);
-            g.drawImage(im.getImage("stripGreen"), 210, 0, null);
-        } else if (x == 3) {
-            g.drawImage(im.getImage("gridr0c2"), 0, 0, null);
-            g.drawImage(im.getImage("gridr1c2"), 105, 0, null);
-            g.drawImage(im.getImage("gridr0c0"), 210, 0, null);
-            g.drawImage(im.getImage("gridr1c0"), 0, 105, null);
-            g.drawImage(im.getImage("gridr0c1"), 105, 105, null);
-            g.drawImage(im.getImage("gridr1c1"), 210, 105, null);
-        } else if (x == 4) {
-            g.drawImage(im.getImage("gridRed"), 0, 0, null);
-            g.drawImage(im.getImage("gridBlue"), 105, 0, null);
-            g.drawImage(im.getImage("gridBlack"), 210, 0, null);
-            g.drawImage(im.getImage("gridYellow"), 0, 105, null);
-            g.drawImage(im.getImage("gridGreen"), 105, 105, null);
-            g.drawImage(im.getImage("gridBrown"), 210, 105, null);
+        switch (x) {
+            case 0:
+                g.drawImage(im.getImage("box"), 0, 0, null);
+                break;
+            case 1:
+                g.drawImage(im.getImage("strip2"), 0, 0, null);
+                g.drawImage(im.getImage("strip0"), 105, 0, null);
+                g.drawImage(im.getImage("strip1"), 210, 0, null);
+                break;
+            case 2:
+                g.drawImage(im.getImage("stripBlack"), 0, 0, null);
+                g.drawImage(im.getImage("stripRed"), 105, 0, null);
+                g.drawImage(im.getImage("stripGreen"), 210, 0, null);
+                break;
+            case 3:
+                g.drawImage(im.getImage("gridr0c2"), 0, 0, null);
+                g.drawImage(im.getImage("gridr1c2"), 105, 0, null);
+                g.drawImage(im.getImage("gridr0c0"), 210, 0, null);
+                g.drawImage(im.getImage("gridr1c0"), 0, 105, null);
+                g.drawImage(im.getImage("gridr0c1"), 105, 105, null);
+                g.drawImage(im.getImage("gridr1c1"), 210, 105, null);
+                break;
+            case 4:
+                g.drawImage(im.getImage("gridRed"), 0, 0, null);
+                g.drawImage(im.getImage("gridBlue"), 105, 0, null);
+                g.drawImage(im.getImage("gridBlack"), 210, 0, null);
+                g.drawImage(im.getImage("gridYellow"), 0, 105, null);
+                g.drawImage(im.getImage("gridGreen"), 105, 105, null);
+                g.drawImage(im.getImage("gridBrown"), 210, 105, null);
+                break;
+            default:
+                break;
         }
         x = (x + 1) % 5;
     }
