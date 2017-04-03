@@ -2,6 +2,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 public class TestingWindow extends JFrame {
 
@@ -11,9 +12,12 @@ public class TestingWindow extends JFrame {
     public TestingWindow() {
         im.loadImages("ImageList.txt");
 
-        setUndecorated(true);
-        setSize(400, 400);
+        setUndecorated(false);
+        setSize(500, 500);
+        setResizable(false);
         setVisible(true);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
         while (true) {
             try {
                 Thread.sleep(4000);
@@ -26,7 +30,7 @@ public class TestingWindow extends JFrame {
     public void paint(Graphics g) {
 
         g.setColor(Color.GRAY);
-        g.fillRect(0, 0, 400, 400);
+        g.fillRect(0, 0, getWidth(), getWidth());
         g.setColor(Color.RED);
         g.drawString("" + x, 300, 300);
         switch (x) {
