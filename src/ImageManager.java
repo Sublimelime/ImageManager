@@ -11,45 +11,57 @@ public class ImageManager {
         images = new TreeMap<>();
     }
 
-    /* Pre: Receives a name of file
-	 * Post: Loads all this images in the file to map of images using the provided load type
+    /**
+     * Loads all the images in the file, with load type
+     *
+     * @param fileName File with names of images and type of load
+     * @return success of load
      */
     public boolean loadImages(String fileName) {
         return false;
     }
 
-    /* Pre: Receives a key
-	 * Post: returns the image that corrisponds to the given key, null if the key is not found
+    /**
+     * Retrieves an image from the TreeMap via a key.
+     *
+     * @param key Gets an image from this key in the TreeMap
+     * @return The gotten image.
      */
     public BufferedImage getImage(String key) {
         return null;
     }
 
-    /* Pre: Receives a key and a file name
-	 * Post: loads the image in the given file to the map with the provided key
-	 * Note: null is returned if the file can not be opened
+    /**
+     * Loads an image to a specified point in the TreeMap using the provided key.
+     *
+     * @param key Key to store the loaded image at.
+     * @param file File to read from.
+     * @return The loaded image.
      */
     public BufferedImage loadImage(String key, String file) {
         return null;
     }
 
-    /* Pre: Receives a key a
-	 * Post: removes the key and its image from the map, the removed image is returned.
-	 * null is returned if the map does not cantain the given key
+    /**
+     * Receives a key and removes the key and its image from the map
+     *
+     * @param key Key to remove
+     * @return Returns the removed image.
      */
     public BufferedImage removeImage(String key) {
         return null;
     }
 
-    /* Pre:
-	 * Post: empties the map
+    /**
+     * Empties the map.
      */
     public void clear() {
 
     }
 
-    /* Pre:
-	 * Post: returns a set of all the keys in the map
+    /**
+     *
+     * @return Returns a set of all the keys in the map
      */
     public Set<String> getKeys() {
         return images.keySet();
