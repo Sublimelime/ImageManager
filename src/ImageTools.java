@@ -20,6 +20,7 @@ public class ImageTools {
         try {
             return ImageIO.read((new File(fileName)));
         } catch (IOException e) {
+            e.printStackTrace();
             return null;
         }
     }

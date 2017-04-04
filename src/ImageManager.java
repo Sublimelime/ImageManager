@@ -30,14 +30,20 @@ public class ImageManager {
         }
 
         for (String line : lines) {
-            System.out.println("Line read: " + line);
+            //System.out.println("Line read: " + line);
             String[] vars = line.split("[,]");
             switch (vars[0]) {
                 case "single": //single,key,fileName.extension
                     images.put(vars[1], ImageTools.load(vars[2]));
                     break;
                 case "SNbL": //SNbL,number columns,key,fileName.extension
+                    for (int i = 0; i < Integer.parseInt(vars[1]); i++) {
+                        BufferedImage temp = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
+                        BufferedImage loaded = ImageTools.load(vars[3]);
+                        temp.getGraphics().drawImage(loaded.getSubimage(i * 100, 0, 100, 100), 0, 0, null);
 
+                        images.put(vars[2] + i, temp);
+                    }
                     break;
                 case "SSN": //SSN,number columns,keys,fileName.extension
                     break;
