@@ -46,6 +46,14 @@ public class ImageManager {
                     }
                     break;
                 case "SSN": //SSN,number columns,keys,fileName.extension
+                    for (int i = 0; i < Integer.parseInt(vars[1]); i++) {
+                        BufferedImage temp = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
+                        BufferedImage loaded = ImageTools.load(vars[vars.length - 1]);
+                        temp.getGraphics().drawImage(loaded.getSubimage(i * 100, 0, 100, 100), 0, 0, null);
+
+                        images.put(vars[i + 2], temp);
+                    }
+
                     break;
                 case "GNbL":  //GNbL,number columns,number rows,key,fileName.extension
                     break;
