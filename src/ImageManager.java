@@ -66,6 +66,17 @@ public class ImageManager {
                     }
                     break;
                 case "GSN": //GSN,number columns,number rows, column,keys,fileName.extension
+                    int picsAdded = 0;
+                    for (int y = 0; y < Integer.parseInt(vars[2]); y++) {
+                        for (int x = 0; x < Integer.parseInt(vars[1]); x++) {
+                            BufferedImage temp = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
+                            BufferedImage loaded = ImageTools.load(vars[vars.length - 1]);
+                            temp.getGraphics().drawImage(loaded.getSubimage(x * 100, y * 100, 100, 100), 0, 0, null);
+
+                            images.put(vars[3 + picsAdded], temp);
+                            picsAdded++;
+                        }
+                    }
                     break;
                 default:
                     System.out.println("Bad line, cannot recognize type " + vars[1]);
