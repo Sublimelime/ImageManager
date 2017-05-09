@@ -40,7 +40,7 @@ public class ImageManager {
                     for (int i = 0; i < Integer.parseInt(vars[1]); i++) {
                         BufferedImage temp = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
                         BufferedImage loaded = ImageTools.load(vars[3]);
-                        temp.getGraphics().drawImage(loaded.getSubimage(i * 100, 0, 100, 100), 0, 0, null);
+                        temp.getGraphics().drawImage(loaded.getSubimage(i * (loaded.getWidth() / Integer.parseInt(vars[1])), 0, 100, 100), 0, 0, null);
 
                         images.put(vars[2] + i, temp);
                     }
@@ -49,7 +49,7 @@ public class ImageManager {
                     for (int i = 0; i < Integer.parseInt(vars[1]); i++) {
                         BufferedImage temp = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
                         BufferedImage loaded = ImageTools.load(vars[vars.length - 1]);
-                        temp.getGraphics().drawImage(loaded.getSubimage(i * 100, 0, 100, 100), 0, 0, null);
+                        temp.getGraphics().drawImage(loaded.getSubimage(i * (loaded.getWidth() / Integer.parseInt(vars[1])), 0, 100, 100), 0, 0, null);
 
                         images.put(vars[i + 2], temp);
                     }
@@ -59,7 +59,7 @@ public class ImageManager {
                         for (int x = 0; x < Integer.parseInt(vars[1]); x++) {
                             BufferedImage temp = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
                             BufferedImage loaded = ImageTools.load(vars[4]);
-                            temp.getGraphics().drawImage(loaded.getSubimage(x * 100, y * 100, 100, 100), 0, 0, null);
+                            temp.getGraphics().drawImage(loaded.getSubimage(x * (loaded.getWidth() / Integer.parseInt(vars[1])), y * (loaded.getHeight() / Integer.parseInt(vars[2])), 100, 100), 0, 0, null);
 
                             images.put(vars[3] + "r" + y + "c" + x, temp);
                         }
@@ -71,7 +71,7 @@ public class ImageManager {
                         for (int x = 0; x < Integer.parseInt(vars[1]); x++) {
                             BufferedImage temp = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
                             BufferedImage loaded = ImageTools.load(vars[vars.length - 1]);
-                            temp.getGraphics().drawImage(loaded.getSubimage(x * 100, y * 100, 100, 100), 0, 0, null);
+                            temp.getGraphics().drawImage(loaded.getSubimage(x * (loaded.getWidth() / Integer.parseInt(vars[1])), y * (loaded.getHeight() / Integer.parseInt(vars[2])), 100, 100), 0, 0, null);
 
                             images.put(vars[3 + picsAdded], temp);
                             picsAdded++;
