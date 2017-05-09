@@ -1,72 +1,90 @@
-
 import java.awt.Color;
-import java.awt.Graphics;
 import javax.swing.JFrame;
-import javax.swing.WindowConstants;
+import java.util.ArrayList;
+import java.awt.Graphics;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 
-public class TestingWindow extends JFrame {
 
-    ImageManager im = new ImageManager();
-    int x = -1;
+public class TestingWindow extends JFrame
+{
+	ImageManager im = new ImageManager();
+	int x = -1;
+	public TestingWindow()
+	{
+		im.loadImages("ImageList.txt");
 
-    public TestingWindow() {
-        im.loadImages("ImageList.txt");
+		setUndecorated(true);
+		setSize(400,400);
+		setVisible(true);
+		while(true)
+		{
+			try
+			{
+				Thread.sleep(4000);
+				repaint();
+			}
+			catch(Exception e)
+			{}
+		}
+	}
 
-        setUndecorated(false);
-        setSize(500, 500);
-        setResizable(false);
-        setVisible(true);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+	public void paint(Graphics g)
+	{
 
-        while (true) {
-            try {
-                Thread.sleep(4000);
-                repaint();
-            } catch (InterruptedException e) {
-            }
-        }
-    }
+		g.setColor(Color.GRAY);
+		g.fillRect(0,0,400,400);
+		g.setColor(Color.RED);
+		g.drawString(""+x,300,300);
+		if(x==0)
+		{
+			g.drawImage(im.getImage("baby"),0,0,null);
+		}
+		else if(x==1)
+		{
+			g.drawImage(im.getImage("metroid0"),0,0,null);
+			g.drawImage(im.getImage("metroid1"),80,0,null);
+			g.drawImage(im.getImage("metroid2"),0,200,null);
+			g.drawImage(im.getImage("metroid3"),80,200,null);
+			
+		}
+		else if(x==2)
+		{
+			g.drawImage(im.getImage("metroidD"),0,0,null);
+			g.drawImage(im.getImage("metroidC"),80,0,null);
+			g.drawImage(im.getImage("metroidB"),160,0,null);
+			g.drawImage(im.getImage("metroidA"),240,0,null);
+		}
+		else if(x==3)
+		{
+			for(int r=4; r>=0; r--)
+				for(int c=0; c<3;c++)
+					g.drawImage(im.getImage("shaper"+r+"c"+c),r*75,c*75,null);
+			
+		}
+		else if(x==4)
+		{
+			
+			g.drawImage(im.getImage("chat1"),0,0,null);
+			g.drawImage(im.getImage("chat2"),100,0,null);
+			g.drawImage(im.getImage("v"),200,0,null);
+			
+			g.drawImage(im.getImage("circle"),0,100,null);
+			g.drawImage(im.getImage("square"),100,100,null);
+			g.drawImage(im.getImage("triangle"),200,100,null);
+			
+			g.drawImage(im.getImage("left"),0,200,null);
+			g.drawImage(im.getImage("up"),100,200,null);
+			g.drawImage(im.getImage("diamond"),200,200,null);
+			
+			g.drawImage(im.getImage("pentagon"),0,300,null);
+			g.drawImage(im.getImage("hexagon"),100,300,null);
+			g.drawImage(im.getImage("star"),200,300,null);
+			
+		}
+		x=(x+1)%5;
+	}
 
-    public void paint(Graphics g) {
 
-        g.setColor(Color.GRAY);
-        g.fillRect(0, 0, getWidth(), getWidth());
-        g.setColor(Color.RED);
-        g.drawString("" + x, 300, 300);
-        switch (x) {
-            case 0:
-                g.drawImage(im.getImage("box"), 0, 0, null);
-                break;
-            case 1:
-                g.drawImage(im.getImage("strip2"), 0, 0, null);
-                g.drawImage(im.getImage("strip0"), 105, 0, null);
-                g.drawImage(im.getImage("strip1"), 210, 0, null);
-                break;
-            case 2:
-                g.drawImage(im.getImage("stripBlack"), 0, 0, null);
-                g.drawImage(im.getImage("stripRed"), 105, 0, null);
-                g.drawImage(im.getImage("stripGreen"), 210, 0, null);
-                break;
-            case 3:
-                g.drawImage(im.getImage("gridr0c2"), 0, 0, null);
-                g.drawImage(im.getImage("gridr1c2"), 105, 0, null);
-                g.drawImage(im.getImage("gridr0c0"), 210, 0, null);
-                g.drawImage(im.getImage("gridr1c0"), 0, 105, null);
-                g.drawImage(im.getImage("gridr0c1"), 105, 105, null);
-                g.drawImage(im.getImage("gridr1c1"), 210, 105, null);
-                break;
-            case 4:
-                g.drawImage(im.getImage("gridRed"), 0, 0, null);
-                g.drawImage(im.getImage("gridBlue"), 105, 0, null);
-                g.drawImage(im.getImage("gridBlack"), 210, 0, null);
-                g.drawImage(im.getImage("gridYellow"), 0, 105, null);
-                g.drawImage(im.getImage("gridGreen"), 105, 105, null);
-                g.drawImage(im.getImage("gridBrown"), 210, 105, null);
-                break;
-            default:
-                break;
-        }
-        x = (x + 1) % 5;
-    }
 
 }

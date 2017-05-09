@@ -1,5 +1,5 @@
-single,box,Single.png
-SNbL,3,strip,Strip.png
-SSN,3,stripBlack,stripGreen,stripRed,Strip.png
-GNbL,3,2,grid,Grid.png
-GSN,3,2,gridBlack,gridGreen,gridRed,gridBrown,gridBlue,gridYellow,Grid.png
+single,baby,TurtleBaby.png
+SNbL,4,metroid,metroid.png
+SSN,4,metroidA,metroidB,metroidC,metroidD,metroid.png
+GNbL,3,4,shape,shapes.png
+GSN,3,4,circle,square,triangle,hexagon,left,star,chat1,up,chat2,diamond,pentagon,v,shapes.png
